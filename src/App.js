@@ -59,7 +59,7 @@ function App() {
   const [select,setSelect]=useState("Formación Titulada")
   useEffect(() => {
       if(datosStatus==="idle"){
-        console.log("carga data")
+        //console.log("carga data")
         dispatch(fetchData())  
       }
     
@@ -67,16 +67,26 @@ function App() {
 
   useEffect(() => {
     if(datosStatus==="succed"){
-      console.log("cambia data 1")
+      //console.log("cambia data 1")
       dispatch(seleccionarData("Formación Titulada"))  
     }
   
 }, [datosStatus, dispatch])
 
-  const skeleNot=<Skeleton variant="rectangular"  height={400}></Skeleton>
+const habiliSkele=["","","","","",""]
 
+const skeleNotPreg=habiliSkele.map((element,index)=>
+{
+
+ return <Grid item xs={12} md={4} key={index}>
+   <div className="mt-3 " style={{marginRight:"20px"}}>
+     
+     <Skeleton variant="rectangular"  height={20}></Skeleton>
+     <Skeleton variant="rounded"   height={30} ></Skeleton></div> 
+     </Grid>
+})
   const cambiaInfo=(event,text)=>{
-    console.log(text)
+    //console.log(text)
     dispatch(seleccionarData(text))  
     setSelect(text)
   }
@@ -87,7 +97,7 @@ function App() {
       
     <ThemeProvider theme={theme}>
       <Grid container spacing={2}>
-      { datosStatus==="loading" || datosStatus==="idle"? skeleNot:
+      { datosStatus==="loading" || datosStatus==="idle"? skeleNotPreg:
        Object.entries(datosPregCatego).map((element, index) => {
        //console.log(element)
         return <Grid item xs={6} key={nanoid()}>

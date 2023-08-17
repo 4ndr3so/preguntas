@@ -31,7 +31,7 @@ export const dataPregSlice=createSlice({
                 state.status="loading"
             })
             .addCase(fetchData.fulfilled,(state,action)=>{
-                console.log("cargada")
+               // console.log("cargada")
                 state.status="succed"
                 state.records=action.payload;
             })

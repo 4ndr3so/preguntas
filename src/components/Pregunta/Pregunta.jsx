@@ -19,7 +19,13 @@ const Pregunta = () => {
   const datosPreg=useSelector(selectAllDataPregun)
   const datosPregCatego=useSelector(getDataByCategoty);
   const dispatch=useDispatch();
-  const skeleNot=<Skeleton variant="rectangular"  height={400}></Skeleton>
+  const skeleNot=<div>
+          <Skeleton variant="rectangular"  height={30} style={{marginBottom:"10px"}}></Skeleton>
+          <Skeleton variant="rectangular"  height={30} style={{marginBottom:"10px"}}></Skeleton>
+          <Skeleton variant="rectangular"  height={30} style={{marginBottom:"10px"}}></Skeleton>
+          <Skeleton variant="rectangular"  height={30} style={{marginBottom:"10px"}}></Skeleton>
+          <Skeleton variant="rectangular"  height={30} style={{marginBottom:"10px"}}></Skeleton>
+          </div>
 
   function createMarkup(text) {
     return {__html: text};

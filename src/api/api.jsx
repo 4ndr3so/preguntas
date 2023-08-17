@@ -1,16 +1,18 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const url = "./assets/preguntas.xml";  
+//const url = "./assets/preguntas.xml";  
+
 
 
 const getUrl=function(){
     var loc1=window.location;
     var str = ""+loc1;
-    var n = str.indexOf("/Noticias");
-    console.log(str.slice(0,n+9))
-    return str.slice(0,n+9)
+    var n = str.indexOf("/ciudadano");
+    //console.log(str.slice(0,n+10))
+    return str.slice(0,n+10)
 }
+const url = getUrl()+"/_api/web/lists/getbytitle('preguntas_frecuentes')/items?$top=1000";
 /*
  const response =await axios.get(url).then(data=>{
             const datos={records:[]}
